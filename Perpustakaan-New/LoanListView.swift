@@ -72,7 +72,7 @@ struct LoanListView: View {
                                         }
                                         
                                     }
-                                    .padding(4)
+//                                    .padding(4)
                                 }
                             )
                         }

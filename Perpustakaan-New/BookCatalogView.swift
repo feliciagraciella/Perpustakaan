@@ -34,7 +34,7 @@ struct BookCatalogView: View {
                         HStack {
                             VStack {
                                 if let data = book.bookCover {
-                                    Image(nsImage: NSImage(data: book.bookCover ?? Data()) ?? NSImage())
+                                    Image(nsImage: NSImage(data: data) ?? NSImage())
                                         .resizable()
                                         .scaledToFit()
                                     

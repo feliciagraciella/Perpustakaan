@@ -80,6 +80,11 @@ struct LoanDetailModel: Codable {
     }
 }
 
+struct MemberDataModel: Decodable {
+    let data: [MemberModel]
+}
+
+
 struct MemberModel: Codable, Hashable, Identifiable {
     let memberID: Int
     let memberName: String
@@ -160,4 +165,8 @@ struct BookModel: Decodable, Hashable, Identifiable {
         let availableStatusValue = try container.decode(Int.self, forKey: .availableStatus)
         availableStatus = availableStatusValue == 1
     }
+}
+
+struct ResponseModel: Decodable {
+    let message: String
 }

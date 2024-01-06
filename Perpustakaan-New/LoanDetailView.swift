@@ -46,7 +46,7 @@ struct LoanDetailView: View {
                                     .font(.title3)
                                     .fontWeight(.bold)
                                 
-                                if let actRetDate = item.actualReturnDate {
+                                if item.actualReturnDate != nil {
                                     Text("Returned")
                                         .foregroundColor(.blue)
                                 } else {
@@ -61,6 +61,7 @@ struct LoanDetailView: View {
                                 viewModel.returnBook(loanID: loanID, bookID: item.bookID)
                                 
                                 viewModel.fetchLoanDetail(loanID: loanID)
+                                viewModel.fetchLoans()
                             } label: {
                                 Text("Return")
                             }
