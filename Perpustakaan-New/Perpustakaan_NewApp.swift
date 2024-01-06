@@ -12,6 +12,8 @@ struct Perpustakaan_NewApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(AppState())
+                .environmentObject(ViewModel())
         }
     }
 }

@@ -8,17 +8,38 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var viewModel: ViewModel
+    
+    @EnvironmentObject private var appState: AppState
+    @State private var currentSubview = AnyView(DummyView())
+    @State private var showingSubview = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationSplitView{
+            SideBar()
+                .onChange(of: appState.currentRoute) { oldValue, newValue in
+                    showingSubview = false
+                }
+        } detail: {
+            StackBarNavigationView(currentSubview: $currentSubview, showingSubview: $showingSubview){
+                if let currentRoute = appState.currentRoute {
+                    switch currentRoute {
+                    case .bookCatalog:
+                        BookCatalogView(currentSubview: $currentSubview, showingSubview: $showingSubview)
+                            .environmentObject(viewModel)
+
+                    case .loanList:
+                        LoanListView(currentSubview: $currentSubview, showingSubview: $showingSubview)
+                            .environmentObject(viewModel)
+                    }
+                }
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(AppState())
+        .environmentObject(ViewModel())
 }
