@@ -57,15 +57,20 @@ struct LoanDetailView: View {
                             
                             Spacer()
                             
-                            Button {
-                                viewModel.returnBook(loanID: loanID, bookID: item.bookID)
-                                
-                                viewModel.fetchLoanDetail(loanID: loanID)
-                                viewModel.fetchLoans()
-                                viewModel.fetchBooks()
-                            } label: {
-                                Text("Return")
+                            if item.actualReturnDate != nil {
+                                Text("Returned on \(item.actualReturnDate ?? "")")
+                            } else {
+                                Button {
+                                    viewModel.returnBook(loanID: loanID, bookID: item.bookID)
+                                    
+                                    viewModel.fetchLoanDetail(loanID: loanID)
+                                    viewModel.fetchLoans()
+                                    viewModel.fetchBooks()
+                                } label: {
+                                    Text("Return")
+                                }
                             }
+                            
                         }
                         
                     }

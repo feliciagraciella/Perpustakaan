@@ -35,6 +35,8 @@ struct NewLoanView: View {
     @State var showingAlert = false
     @State var showingAlert2 = false
     
+    @State var alertMessage = ""
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("New Loan")
@@ -86,19 +88,29 @@ struct NewLoanView: View {
                 
                 Button {
                     if details.count < 2 {
-                        let newDetail = NewLoanDetail(bookID: selectedBook?.bookID ?? 0, bookTitle: selectedBook?.bookTitle ?? "")
+                        if details.contains(where: { $0.bookID == selectedBook?.bookID }) {
+                            alertMessage = "Book already added"
+                            showingAlert.toggle()
+                        } else {
+                            let newDetail = NewLoanDetail(bookID: selectedBook?.bookID ?? 0, bookTitle: selectedBook?.bookTitle ?? "")
+                            details.append(newDetail)
+                        }
                         
-                        details.append(newDetail)
+//                        let newDetail = NewLoanDetail(bookID: selectedBook?.bookID ?? 0, bookTitle: selectedBook?.bookTitle ?? "")
+//                        
+//                        
+//                        details.append(newDetail)
                     } else {
+                        alertMessage = "Max 2 Books"
                         showingAlert.toggle()
                     }
                 } label: {
                     Text("Add")
                 }
-                .alert("Max 2 Books", isPresented: $showingAlert) {
-                   Button("OK", role: .cancel) { }
+                .alert(alertMessage, isPresented: $showingAlert) {
+//                   Button("OK", role: .cancel) { }
                 }
-                .disabled(selectedMember?.loans ?? 1 > 0)
+                .disabled(selectedMember?.loans ?? 1 > 0 || (memberName == "" && memberStatus == .new))
             }
             
             Table(details) {
@@ -154,8 +166,8 @@ struct NewLoanView: View {
                 } label: {
                     Text("Create Loan")
                 }
-                .alert("New load added", isPresented: $showingAlert2) {
-                   Button("OK", role: .cancel) { }
+                .alert("New loan added", isPresented: $showingAlert2) {
+                   /*Button("OK", role: .cancel)*/ /*{ }*/
                 }
                 .disabled(details.count < 1 || (memberName == "" && memberStatus == .new))
             }
