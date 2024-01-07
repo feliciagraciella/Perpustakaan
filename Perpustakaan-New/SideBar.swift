@@ -12,6 +12,7 @@ struct SideBar: View {
     
     @State var clickStatus: Bool = true
     @State var clickStatus2: Bool = false
+    @State var clickStatus3: Bool = false
     
     var body: some View {
         List {
@@ -28,6 +29,7 @@ struct SideBar: View {
                     appState.push(.bookCatalog)
                     clickStatus = true
                     clickStatus2 = false
+                    clickStatus3 = false
                 }
             }
             
@@ -44,10 +46,28 @@ struct SideBar: View {
                     appState.push(.loanList)
                     clickStatus = false
                     clickStatus2 = true
+                    clickStatus3 = false
                 }
                 
             }
             
+            HStack{
+                Image(systemName: "list.bullet")
+                    .frame(width: 12)
+                Text("Book List")
+            }
+            .foregroundStyle(clickStatus3 ? .white : .primary)
+            .listRowBackground(clickStatus3 ? Color.black.clipShape(RoundedRectangle(cornerRadius: 6)).padding(.horizontal, 10) : Color.clear.clipShape(RoundedRectangle(cornerRadius: 6)).padding(.horizontal))
+            .onTapGesture {
+                withAnimation(.easeOut(duration: 0.3)) {
+                    appState.routes.removeAll()
+                    appState.push(.bookList)
+                    clickStatus = false
+                    clickStatus2 = false
+                    clickStatus3 = true
+                }
+                
+            }
         }
     }
 }

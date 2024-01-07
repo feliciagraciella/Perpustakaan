@@ -10,6 +10,7 @@ import Foundation
 enum Route {
     case bookCatalog
     case loanList
+    case bookList
 }
 
 class AppState: ObservableObject{

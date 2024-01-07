@@ -21,6 +21,8 @@
 		246C498A2B499A4F00B0D936 /* BookCatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246C49892B499A4F00B0D936 /* BookCatalogView.swift */; };
 		246C498C2B499D1E00B0D936 /* NewLoanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246C498B2B499D1E00B0D936 /* NewLoanView.swift */; };
 		246C498F2B49A63900B0D936 /* LoanDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246C498E2B49A63900B0D936 /* LoanDetailView.swift */; };
+		246C49912B49E91400B0D936 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246C49902B49E91400B0D936 /* BookListView.swift */; };
+		246C49932B4A2A8B00B0D936 /* EditBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246C49922B4A2A8B00B0D936 /* EditBookView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		246C498B2B499D1E00B0D936 /* NewLoanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoanView.swift; sourceTree = "<group>"; };
 		246C498D2B49A29400B0D936 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		246C498E2B49A63900B0D936 /* LoanDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanDetailView.swift; sourceTree = "<group>"; };
+		246C49902B49E91400B0D936 /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
+		246C49922B4A2A8B00B0D936 /* EditBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBookView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,8 @@
 				246C497B2B49987200B0D936 /* LoanListView.swift */,
 				246C498B2B499D1E00B0D936 /* NewLoanView.swift */,
 				246C498E2B49A63900B0D936 /* LoanDetailView.swift */,
+				246C49902B49E91400B0D936 /* BookListView.swift */,
+				246C49922B4A2A8B00B0D936 /* EditBookView.swift */,
 			);
 			path = "Perpustakaan-New";
 			sourceTree = "<group>";
@@ -176,6 +182,7 @@
 				246C49842B49998C00B0D936 /* SideBar.swift in Sources */,
 				246C498F2B49A63900B0D936 /* LoanDetailView.swift in Sources */,
 				246C498A2B499A4F00B0D936 /* BookCatalogView.swift in Sources */,
+				246C49932B4A2A8B00B0D936 /* EditBookView.swift in Sources */,
 				246C49862B4999D800B0D936 /* AppState.swift in Sources */,
 				246C498C2B499D1E00B0D936 /* NewLoanView.swift in Sources */,
 				246C49882B499A3A00B0D936 /* DummyView.swift in Sources */,
@@ -183,6 +190,7 @@
 				246C497E2B49987B00B0D936 /* ViewModel.swift in Sources */,
 				246C496D2B49985F00B0D936 /* Perpustakaan_NewApp.swift in Sources */,
 				246C49802B49988000B0D936 /* Models.swift in Sources */,
+				246C49912B49E91400B0D936 /* BookListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

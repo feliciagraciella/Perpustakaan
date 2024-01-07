@@ -133,6 +133,11 @@ struct NewLoanView: View {
                         }
                         
                         details = []
+                        viewModel.fetchLoans()
+                        viewModel.fetchBooks()
+                        selectedMember = viewModel.members.first(where: {$0.loans < 1})
+                        
+                        showingAlert2.toggle()
                     } else {
                         viewModel.newMember(memberName: memberName) 
                         
@@ -157,7 +162,7 @@ struct NewLoanView: View {
         }
         .onAppear {
             selectedMember = viewModel.members.first(where: {$0.loans < 1})
-            selectedBook = viewModel.books.first
+            selectedBook = availableBooks.first
         }
         .padding()
     }

@@ -62,6 +62,7 @@ struct LoanDetailView: View {
                                 
                                 viewModel.fetchLoanDetail(loanID: loanID)
                                 viewModel.fetchLoans()
+                                viewModel.fetchBooks()
                             } label: {
                                 Text("Return")
                             }

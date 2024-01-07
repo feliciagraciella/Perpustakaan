@@ -14,21 +14,17 @@ struct LoanDataModel: Decodable {
 }
 
 struct LoanModel: Decodable {
-//    let id: Int
     let loanID: Int
     let memberName: String
     let loanDate: String
     let returnStatus: Bool
     let returnDate: String
-//    let bookCover: [String]?
     let bookCount: Int
     
     private enum CodingKeys: String, CodingKey {
-//        case id
         case loanID
         case memberName
         case loanDate
-//        case bookCover
         case bookCount
         case returnDate
         case returnStatus = "returnStatus"
@@ -36,15 +32,12 @@ struct LoanModel: Decodable {
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-//        id = try container.decode(Int.self, forKey: .id)
         loanID = try container.decode(Int.self, forKey: .loanID)
         memberName = try container.decode(String.self, forKey: .memberName)
         loanDate = try container.decode(String.self, forKey: .loanDate)
         returnDate = try container.decode(String.self, forKey: .returnDate)
-//        bookCover = try container.decodeIfPresent(Data.self, forKey: .bookCover)
         bookCount = try container.decode(Int.self, forKey: .bookCount)
 
-        // Decode tinyint as Bool for availableStatus
         let returnStatusValue = try container.decode(Int.self, forKey: .returnStatus)
         returnStatus = returnStatusValue == 1
     }
@@ -74,7 +67,6 @@ struct LoanDetailModel: Codable {
         details = try container.decode([Detail].self, forKey: .details)
         returnDate = try container.decode(String.self, forKey: .returnDate)
 
-        // Decode tinyint as Bool for availableStatus
         let returnStatusValue = try container.decode(Int.self, forKey: .returnStatus)
         returnStatus = returnStatusValue == 1
     }
@@ -161,7 +153,6 @@ struct BookModel: Decodable, Hashable, Identifiable {
 
         bookCover = try container.decodeIfPresent(Data.self, forKey: .bookCover)
 
-        // Decode tinyint as Bool for availableStatus
         let availableStatusValue = try container.decode(Int.self, forKey: .availableStatus)
         availableStatus = availableStatusValue == 1
     }

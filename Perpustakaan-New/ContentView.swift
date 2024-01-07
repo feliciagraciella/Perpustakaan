@@ -27,10 +27,15 @@ struct ContentView: View {
                     case .bookCatalog:
                         BookCatalogView(currentSubview: $currentSubview, showingSubview: $showingSubview)
                             .environmentObject(viewModel)
-
+                        
                     case .loanList:
                         LoanListView(currentSubview: $currentSubview, showingSubview: $showingSubview)
                             .environmentObject(viewModel)
+                    
+                    case .bookList:
+                        BookListView()
+                            .environmentObject(viewModel)
+                        
                     }
                 }
             }
